@@ -1,5 +1,7 @@
 LinearEquation.java //class
 // instance variables
+private String test1; // test variables are to help me isolate the y coordinates
+private String test2;
 private String coordinate1;
 private String coordinate2;
 private integer x1;
@@ -10,9 +12,19 @@ private double x2;
 public LinearEquation(String coordinate1, String coordinate2) {
     this.coordinate1 = coordinate1;
     this.coordinate2 = coordinate2;
-    int x1 = Integer.parseInt(coordinate1.substring(coordinate1.IndexOf(",") - 1)));
-    int y1 = Integer.parseInt(substring(0,length(coordinate1))coordinate1.substring(coordinate1.IndexOf(",") + 1)));
-    int x2 =
+    String test1 = (coordinate1.substring(coordinate1.indexOf(",") + 1));
+    String test2 = (coordinate2.substring(coordinate2.indexOf(",") + 1));
+    int x1 = Integer.parseInt((coordinate1.substring(1,coordinate1.indexOf(","))));
+    int y1 = Integer.parseInt(test1.substring(0,test1.length()-1));
+    int x2 = Integer.parseInt((coordinate2.substring(1,coordinate2.indexOf(","))));
+    int y2 = Integer.parseInt(test2.substring(0,test2.length()-1));
+}
+
+public String toString() {
+String s = "First pair: (" + x1 + "," + y1 + ")\nSecond pair: (" + x2 + "," + y2 + ")\nSlope: "+ ;
+return s;
+}
+
 
 
 
