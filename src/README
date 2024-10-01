@@ -1,0 +1,23 @@
+LinearEquation.java //class
+// instance variables
+private String coordinate1;
+private String coordinate2;
+private integer x1;
+private integer y1;
+private double x2;
+
+// constructors
+public LinearEquation(String coordinate1, String coordinate2) {
+    this.coordinate1 = coordinate1;
+    this.coordinate2 = coordinate2;
+    int x1 = Integer.parseInt(coordinate1.substring(coordinate1.IndexOf(",") - 1)));
+    int y1 = Integer.parseInt(substring(0,length(coordinate1))coordinate1.substring(coordinate1.IndexOf(",") + 1)));
+    int x2 =
+
+
+
+EquationRunner.java // runner
+import java.util.Scanner; // imports
+
+System.out.println("Enter your First coordinate Point:")
+String coord1 = s.nextLine();
