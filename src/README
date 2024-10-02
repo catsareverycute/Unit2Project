@@ -1,27 +1,37 @@
+Design Document
+
 LinearEquation.java //class
 // instance variables
-private String test1; // test variables are to help me isolate the y coordinates
-private String test2;
-private String coordinate1;
-private String coordinate2;
-private integer x1;
-private integer y1;
-private double x2;
+private String coordinate1; // first coordinate
+private String coordinate2; // second coordinate
+private integer x1; // x value of first coordinate
+private integer y1; // y value of first coordinate
+private integer x2; // x value of second coordinate
+private integer y2; // y value of second coordinate
 
 // constructors
-public LinearEquation(String coordinate1, String coordinate2) {
+public LinearEquation(String coordinate1, String coordinate2) { // isolates the values in the coordinates
     this.coordinate1 = coordinate1;
     this.coordinate2 = coordinate2;
-    String test1 = (coordinate1.substring(coordinate1.indexOf(",") + 1));
-    String test2 = (coordinate2.substring(coordinate2.indexOf(",") + 1));
+
     int x1 = Integer.parseInt((coordinate1.substring(1,coordinate1.indexOf(","))));
-    int y1 = Integer.parseInt(test1.substring(0,test1.length()-1));
+    int y1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf(",")+1,coordinate1.length()-1));
     int x2 = Integer.parseInt((coordinate2.substring(1,coordinate2.indexOf(","))));
-    int y2 = Integer.parseInt(test2.substring(0,test2.length()-1));
+    int y2 = Integer.parseInt(coordinate2.substring(coordinate2.indexOf(",")+1,coordinate2.length()-1));
+}
+
+public double Slope() { // calculates slope
+    double slope = (double)(y2-y1)/(x2-x1);
+    return slope;
+}
+
+public double yIntercept() { // calculates y-intercept
+    double yIntercept = (y1-(slope*x1));
+    return yIntercept;
 }
 
 public String toString() {
-String s = "First pair: (" + x1 + "," + y1 + ")\nSecond pair: (" + x2 + "," + y2 + ")\nSlope: "+ ;
+String s = "First pair: " + coordinate1 + "\nSecond pair: " + coordinate2 + "\nSlope: "+ ;
 return s;
 }
 
