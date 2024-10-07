@@ -1,7 +1,7 @@
 public class EquationRunner {
     public static void main(String[] args) {
-        String coordinate1 = "(0,0)";
-        String coordinate2 = "(1,1)";
+        String coordinate1 = "(4,0)";
+        String coordinate2 = "(8,8)";
 
         int x1 = Integer.parseInt((coordinate1.substring(1,coordinate1.indexOf(","))));
         int y1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf(",")+1,coordinate1.length()-1));
