@@ -36,11 +36,19 @@ public class LinearEquation {
         this.slope = slope;
         String slopeFraction = numerator + "/" + denominator;
         this.slopeFraction = slopeFraction;
-        double floatResult = (double)numerator/denominator;
-        int intResult = numerator/denominator;
+        if (numerator % denominator == 0) {
+            slopeFraction = Integer.toString(numerator/denominator);
+        }
+        if (denominator < 0) {
+            denominator = denominator * -1;
+            numerator = numerator * -1;
+            slopeFraction = numerator + "/" + denominator;
+        }
         if (denominator == 1) {
             slopeFraction = Integer.toString(numerator);
         }
+        double floatResult = (double)numerator/denominator;
+        int intResult = numerator/denominator;
         if (floatResult == intResult) {
             slopeFraction = numerator/denominator + "";
         }
@@ -57,8 +65,17 @@ public class LinearEquation {
         if (slope == 1) {
             slopeFraction = "";
         }
+        if (slope == -1) {
+            slopeFraction = "-";
+        }
+        if (slope == 0) {
+            slopeFraction = "0";
+        }
         if (yIntercept == 0) {
             slopeIntercept = "y = " + slopeFraction + "x";
+        }
+        if (yIntercept == 0 && slope == 0 ){
+            slopeIntercept = "y = " + slopeFraction;
         }
         else {
             slopeIntercept = "y = " + slopeFraction + "x + " + formatter.format(yIntercept);
