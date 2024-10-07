@@ -1,4 +1,7 @@
+import java.text.DecimalFormat;
+
 public class LinearEquation {
+    DecimalFormat formatter = new DecimalFormat("0.00"); // rounding to hundredths
     // instance variables
     private String coordinate1; // first coordinate
     private String coordinate2; // second coordinate
@@ -9,6 +12,7 @@ public class LinearEquation {
     private double slope; // slope
     private String slopeFraction;
     private double yIntercept; // y-intercept
+    private String slopeIntercept;
 
     // constructors
     public LinearEquation(String coordinate1, String coordinate2) { // isolates the values in the coordinates
@@ -26,19 +30,20 @@ public class LinearEquation {
     }
 
     public double slope() { // calculates slope
-
         int numerator = y2-y1;
         int denominator = x2-x1;
+        double slope = (double)(y2-y1)/(x2-x1);
+        this.slope = slope;
         String slopeFraction = numerator + "/" + denominator;
+        this.slopeFraction = slopeFraction;
+        double floatResult = (double)numerator/denominator;
+        int intResult = numerator/denominator;
         if (denominator == 1) {
             slopeFraction = Integer.toString(numerator);
         }
-        if (Integer.parseInt((double)(numerator)/(denominator) == (numerator / denominator))) {
+        if (floatResult == intResult) {
             slopeFraction = numerator/denominator + "";
-        }
-        this.slopeFraction = slopeFraction;
-        double slope = (double)(y2-y1)/(x2-x1);
-        this.slope = slope;
+        }  
         return slope;
     }
 
@@ -49,12 +54,20 @@ public class LinearEquation {
     }
 
     public String slopeIntercept() {
-        String slopeIntercept = "y = " + slopeFraction + "x + " + yIntercept;
+        if (slope == 1) {
+            slopeFraction = "";
+        }
+        if (yIntercept == 0) {
+            slopeIntercept = "y = " + slopeFraction + "x";
+        }
+        else {
+            slopeIntercept = "y = " + slopeFraction + "x + " + formatter.format(yIntercept);
+        }
         return slopeIntercept;
     }
 
     public String toString() {
-        String s = "First pair: " + coordinate1 + "\nSecond pair: " + coordinate2 + "\nSlope: ";
+        String s = "First pair: " + coordinate1 + "\nSecond pair: " + coordinate2 + "\nSlope of line: " + formatter.format(slope()) + "\nY-intercept: " + formatter.format(yIntercept()) + "\nSlope intercept form: " + slopeIntercept();
         return s;
     }
 }
