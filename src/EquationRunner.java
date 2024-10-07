@@ -12,4 +12,3 @@ public class EquationRunner {
         System.out.println(LinearEquation);
     }
 }
-

@@ -43,7 +43,7 @@ public class LinearEquation {
         }
         if (floatResult == intResult) {
             slopeFraction = numerator/denominator + "";
-        }  
+        }
         return slope;
     }
 
