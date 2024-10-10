@@ -1,14 +1,23 @@
+import java.util.Scanner; // imports
+
 public class EquationRunner {
     public static void main(String[] args) {
-        String coordinate1 = "(4,0)";
-        String coordinate2 = "(8,8)";
+        Scanner s = new Scanner(System.in);
 
-        int x1 = Integer.parseInt((coordinate1.substring(1,coordinate1.indexOf(","))));
-        int y1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf(",")+1,coordinate1.length()-1));
-        int x2 = Integer.parseInt((coordinate2.substring(1,coordinate2.indexOf(","))));
-        int y2 = Integer.parseInt(coordinate2.substring(coordinate2.indexOf(",")+1,coordinate2.length()-1));
-        System.out.println("(" + x1 + "," + y1 + ")" + "(" + x2 + "," + y2 + ")");
-        LinearEquation LinearEquation = new LinearEquation(coordinate1,coordinate2);
-        System.out.println(LinearEquation);
+        System.out.println("Enter your first Coordinate Point: "); // 1st coordinate collecting
+        String coordinate1 = s.nextLine();
+        System.out.println("Enter your second Coordinate Point: "); // 2nd coordinate collecting
+        String coordinate2 = s.nextLine();
+
+        LinearEquation LinearEquation = new LinearEquation(coordinate1,coordinate2); // creates an object using the two coordinates
+        System.out.println(LinearEquation); // prints out calculations of the coordinates
+
+        System.out.println("Enter a third x-value: "); // x-value for 3rd coordinate collecting
+        String xValue = s.nextLine();
+        double x = Double.parseDouble(xValue); // converts to double to be able to use the thirdPoint
+        LinearEquation.thirdPoint(x); // method to find the y-value that correlates with the x-value and then prints the coordinate
+
+        s.close(); // yay
     }
 }
+
