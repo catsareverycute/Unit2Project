@@ -1,38 +1,45 @@
 Design Document
 
 LinearEquation.java //class
+// imports
+import java.text.DecimalFormat;
+
+DecimalFormat formatter = new DecimalFormat("0.00"); // rounding to hundredths
+
 // instance variables
 private String coordinate1; // first coordinate
 private String coordinate2; // second coordinate
-private integer x1; // x value of first coordinate
-private integer y1; // y value of first coordinate
-private integer x2; // x value of second coordinate
-private integer y2; // y value of second coordinate
+private int x1; // x value of first coordinate
+private int y1; // y value of first coordinate
+private int x2; // x value of second coordinate
+private int y2; // y value of second coordinate
+private double slope; // slope
+private String slopeFraction; // fraction form of slope
+private double yIntercept; // y-intercept
+private String slopeIntercept; // slope-intercept equation
+private double numerator; // numerator of slope as a fraction
+private double denominator; // denominator of slope as a fraction
 
 // constructors
-public LinearEquation(String coordinate1, String coordinate2) { // isolates the values in the coordinates
-    this.coordinate1 = coordinate1;
-    this.coordinate2 = coordinate2;
-
-    int x1 = Integer.parseInt((coordinate1.substring(1,coordinate1.indexOf(","))));
-    int y1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf(",")+1,coordinate1.length()-1));
-    int x2 = Integer.parseInt((coordinate2.substring(1,coordinate2.indexOf(","))));
-    int y2 = Integer.parseInt(coordinate2.substring(coordinate2.indexOf(",")+1,coordinate2.length()-1));
+public LinearEquation(String coordinate1, String coordinate2) { // takes in the coordinates and isolates the values in the coordinates
 }
 
-public double Slope() { // calculates slope
-    double slope = (double)(y2-y1)/(x2-x1);
-    return slope;
+public double slope() { // calculates slope
 }
 
 public double yIntercept() { // calculates y-intercept
-    double yIntercept = (y1-(slope*x1));
-    return yIntercept;
 }
 
-public String toString() {
-String s = "First pair: " + coordinate1 + "\nSecond pair: " + coordinate2 + "\nSlope: "+ ;
-return s;
+public String slopeIntercept() { // creates slope-intercept form equation
+}
+
+public double distance() { // calculates distance between the two coordinates
+}
+
+public void thirdPoint(double xValue) { // finds coordinate given an x-value and the current data of the two coordinates
+}
+
+public String toString() { // formats data (coordinates, slope, y-intercept, slope-intercept equation, and distance) to be printed as a string
 }
 
 
@@ -41,5 +48,8 @@ return s;
 EquationRunner.java // runner
 import java.util.Scanner; // imports
 
-System.out.println("Enter your First coordinate Point:")
-String coord1 = s.nextLine();
+Step 1: Ask user to enter two coordinate points
+Step 2: Use the inputs to create an object with the LinearEquation constructor
+Step 3: Print out the object and toString() will use the results from the methods and create a printed statement
+Step 4: Ask user to enter an x-value
+Step 5: Use the thirdPoint method using the input given as an argument, resulting in a coordinate with the x-value and the connected y-value being printed
