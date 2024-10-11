@@ -94,7 +94,7 @@ public class LinearEquation {
     }
 
     public void thirdPoint(double xValue) { // finds coordinate given an x-value and the current data of the two coordinates
-        double yValue = slope * xValue + yIntercept;
+        double yValue = slope * (xValue - x1) + y1;
         String thirdPoint = "(" + formatter.format(xValue) + "," + formatter.format(yValue) + ")";
         System.out.println("Solved coordinate point is: " + thirdPoint);
     }
